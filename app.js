@@ -14,7 +14,7 @@ document.getElementById('app').insertAdjacentHTML(
 // Referral Code Logic
 function generateReferralLink() {
     const referralCode = user.username || "Guest" + Math.random().toString(36).substring(7); // Generate unique code or use username
-    const referralLink = `https://t.me/YourBotUsername?start=${referralCode}`;
+    const referralLink = `https://t.me/Airdrop_calculatorbot?start=${referralCode}`;
     return referralLink;
 }
 
