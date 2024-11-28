@@ -11,6 +11,23 @@ document.getElementById('app').insertAdjacentHTML(
     `<h1>Welcome, ${user.first_name || 'User'}!</h1>`
 );
 
+// Referral Code Logic
+function generateReferralLink() {
+    const referralCode = user.username || "Guest" + Math.random().toString(36).substring(7); // Generate unique code or use username
+    const referralLink = `https://t.me/YourBotUsername?start=${referralCode}`;
+    return referralLink;
+}
+
+// Copy referral link to clipboard
+document.getElementById('copy-referral-link').addEventListener('click', function () {
+    const referralLink = generateReferralLink();
+    navigator.clipboard.writeText(referralLink).then(() => {
+        alert('Referral link copied to clipboard!');
+    }).catch((err) => {
+        alert('Failed to copy referral link.');
+    });
+});
+
 // Format numbers with abbreviations
 function formatNumber(value) {
     if (value >= 1_000_000_000) {
